@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "lint": "eslint -c config/.eslintrc.js src --ext .js,.ts",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
@@ -24,10 +25,13 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~13.1.1",
+    "@angular-eslint/eslint-plugin": "^13.0.1",
     "@angular/cli": "~13.1.1",
     "@angular/compiler-cli": "~13.1.0",
     "@types/jasmine": "~3.10.0",
     "@types/node": "^12.11.1",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^8.4.1",
     "jasmine-core": "~3.10.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",

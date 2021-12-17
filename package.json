@@ -3,11 +3,12 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "lint": "eslint -c config/.eslintrc.js src --ext .js,.ts",
+    "lint": "eslint -c .eslintrc.js src --ext .js,.ts",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "postinstall": "ngcc"
   },
   "private": true,
   "dependencies": {

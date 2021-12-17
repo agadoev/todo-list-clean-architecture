@@ -18,12 +18,12 @@ export class EditTodoRequest {
 
 @Injectable({ providedIn: 'root' })
 export class EditTodoUseCase implements IUseCase<EditTodoRequest, any> {
-  readonly presenter: void | undefined;
+  private readonly repository: TodoRepository;
+  public readonly presenter: void;
 
   constructor(
     private readonly interaction: InteractionService,
-    private readonly repository: TodoRepository,
-    private readonly showListUseCase: GetAllUseCase
+    private readonly showListUseCase: GetAllUseCase,
   ) {}
 
   public async execute(request: EditTodoRequest): Promise<void> {

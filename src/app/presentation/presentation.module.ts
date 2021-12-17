@@ -1,17 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TodoComponent } from './todo/todo.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
-
-
+import { ShowTodoListPresenter } from '../core/use-cases';
+import {TodoListPresenter} from "./todo-list/todo-list.presenter";
 
 @NgModule({
   declarations: [
-    TodoComponent,
+    TodoListComponent
+  ],
+  exports: [
     TodoListComponent
   ],
   imports: [
     CommonModule
+  ],
+  providers: [
+    { provide: ShowTodoListPresenter, useClass: TodoListPresenter }
   ]
 })
 export class PresentationModule { }

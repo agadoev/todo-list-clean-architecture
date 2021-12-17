@@ -13,12 +13,12 @@ export class RemoveTodoRequest {
 
 @Injectable({ providedIn: 'root' })
 export class RemoveTodoUseCase implements IUseCase<RemoveTodoRequest, void> {
+  private readonly repository: TodoRepository;
+  public readonly  presenter: void;
 
   constructor(
-    private readonly repository: TodoRepository,
     private readonly interaction: InteractionService,
-    private readonly showAllUseCase: GetAllUseCase,
-    public readonly presenter: void
+    private readonly showAllUseCase: GetAllUseCase
   ) {
   }
 

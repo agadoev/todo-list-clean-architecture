@@ -1,12 +1,12 @@
 import { TodoEntity } from '../entities';
 import { guid } from "../../Guid";
 
-export interface TodoRepository {
-  add(todo: TodoEntity): Promise<TodoEntity>;
+export abstract class TodoRepository {
+  public abstract add(todo: TodoEntity): Promise<TodoEntity>;
 
-  remove(id: guid): Promise<void>;
+  public abstract remove(id: guid): Promise<void>;
 
-  getAll(): Promise<TodoEntity[]>;
+  public abstract getAll(): Promise<TodoEntity[]>;
 
-  update(id: guid, _new: TodoEntity): Promise<TodoEntity>;
+  public abstract update(id: guid, _new: TodoEntity): Promise<TodoEntity>;
 }

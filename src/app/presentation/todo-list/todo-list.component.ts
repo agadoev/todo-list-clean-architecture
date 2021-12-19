@@ -1,29 +1,31 @@
 import { Component, OnInit } from '@angular/core';
-import {GetAllUseCase} from "../../core/use-cases/get-all.use-case";
-import {AddTodoUseCase} from "../../core/use-cases/add-todo.use-case";
-import {RemoveTodoUseCase} from "../../core/use-cases/remove-todo.use-case";
-import {EditTodoUseCase} from "../../core/use-cases/edit-todo.use-case";
+import {GetAllUseCase, ShowTodoListPresenter} from "../../core/use-cases";
+import {AddTodoUseCase} from "../../core/use-cases";
+import {RemoveTodoUseCase} from "../../core/use-cases";
+import {EditTodoUseCase} from "../../core/use-cases";
 import {guid} from "../../Guid";
 import {TodoEntity} from "../../core/entities";
-import {TodoListPresenter} from "./todo-list.presenter";
+import {TodoListViewModel} from "./todo-list.view-model";
 
 @Component({
     selector: 'app-todo-list',
     templateUrl: './todo-list.component.html',
     styleUrls: ['./todo-list.component.sass']
 })
-export class TodoListComponent implements OnInit {
+export class TodoListComponent {
 
   constructor(
     private readonly showAll: GetAllUseCase,
     private readonly addTodo: AddTodoUseCase,
     private readonly removeTodo: RemoveTodoUseCase,
     private readonly editTodo: EditTodoUseCase,
-    public readonly presenter: TodoListPresenter
-  ) {}
+    public readonly presenter: ShowTodoListPresenter<TodoListViewModel>
+  ) {
+    presenter.reset();
+  }
 
   async ngOnInit(): Promise<void> {
-    this.presenter.reset();
+
     await this.showAll.execute();
   }
 

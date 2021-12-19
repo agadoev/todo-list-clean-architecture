@@ -3,8 +3,8 @@ import {Injectable} from "@angular/core";
 import {TodoEntity} from "../../core/entities";
 import {guid} from "../../Guid";
 
-@Injectable()
-export class TodoRepositoryService implements TodoRepository {
+@Injectable({ providedIn: 'root' })
+export class TodoRepositoryService extends TodoRepository {
 
   private todos: TodoEntity[] = [];
 

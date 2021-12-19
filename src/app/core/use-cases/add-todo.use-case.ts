@@ -8,11 +8,11 @@ import {Injectable} from "@angular/core";
 @Injectable({providedIn: 'root'})
 export class AddTodoUseCase implements IUseCase<void, void> {
   public readonly presenter: void;
-  private readonly repository: TodoRepository;
 
   constructor(
     private readonly interactionService: InteractionService,
-    private readonly showAllUseCase: GetAllUseCase
+    private readonly showAllUseCase: GetAllUseCase,
+    private readonly repository: TodoRepository
   ) {}
 
   public async execute(request: void): Promise<void> {

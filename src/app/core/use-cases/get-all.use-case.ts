@@ -9,9 +9,11 @@ export abstract class ShowTodoListPresenter<T> extends Presenter<T> {
 
 @Injectable({ providedIn: 'root' })
 export class GetAllUseCase implements IUseCase<void, ShowTodoListPresenter<any>> {
-    public readonly presenter: ShowTodoListPresenter<any>;
-    private readonly repository: TodoRepository;
-    constructor() {}
+
+    constructor(
+      private readonly repository: TodoRepository,
+      public readonly presenter: ShowTodoListPresenter<any>
+    ) {}
 
     public async execute(request: void): Promise<void> {
         try {

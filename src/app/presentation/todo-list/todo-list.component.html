@@ -2,8 +2,7 @@
 <ul>
   <li *ngFor='let todo of presenter.viewModel.todos; index as id'>
     <label>
-<!--      <input type='checkbox' [checked]='todo.done' (change)='setToDoState(todo.id, todo)'>-->
-      {{ todo.text }}
+      <input type='checkbox' [checked]='todo.done' (change)="setTodoState(todo.id, todo)"> {{ todo.text }}
     </label>
     <button (click)='edit(todo.id, todo)'>Edit</button>
     <button (click)='remove(todo.id)'>Delete</button>

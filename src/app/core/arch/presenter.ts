@@ -1,6 +1,5 @@
-/**
- * Пока хз что делает Presenter
- */
+
+
 export abstract class Presenter<TView> {
     public viewModel: TView;
 

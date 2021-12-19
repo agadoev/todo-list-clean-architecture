@@ -37,6 +37,10 @@ export class TodoListComponent {
     await this.editTodo.execute({ id, todo, onlyToggleDone: false })
   }
 
+  public async setTodoState(id: guid, todo: TodoEntity) {
+    await this.editTodo.execute({ id, todo, onlyToggleDone: true })
+  }
+
   public async remove(id: guid) {
     await this.removeTodo.execute({ id });
   }

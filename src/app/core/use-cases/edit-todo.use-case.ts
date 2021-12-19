@@ -30,7 +30,7 @@ export class EditTodoUseCase implements IUseCase<EditTodoRequest, any> {
   public async execute(request: EditTodoRequest): Promise<void> {
 
     try {
-      const todo = new TodoEntity(request.todo.text);
+      const todo = new TodoEntity(request.todo.text, request.todo.done);
       if (request.onlyToggleDone) {
         todo.done = !todo.done;
       } else {
